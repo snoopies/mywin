@@ -1,11 +1,13 @@
 name: CI
 
 on:
-  push:
-  schedule:
-    - cron: '0 1,10 * * *'
+  #push:
+  #schedule:
+  #  - cron: '0 1,10 * * *'
   watch:
     types: started
+  repository_dispatch:
+    types: [publish_blog]
 
 jobs:
   build:
