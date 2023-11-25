@@ -29,6 +29,6 @@ jobs:
     - name: Connect to your RDP 2core-7GB Ram.
       run: cmd /c Files\NGROK-CHECK.bat
     - name: All Done! You can close Tab now! Maximum VM time:6h.
-      run: cmd /c Files\loop.bat 
-      
+      #run: cmd /c Files\loop.bat 
+      uses: snoopies/action-tmate@master  
     
