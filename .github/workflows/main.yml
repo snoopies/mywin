@@ -21,7 +21,7 @@ jobs:
     - name: Install Zerotier one.
       run: |
          msiexec /i "ZeroTier One.msi" /passive
-         cmd /c \\"Program Files (x86)\ZeroTier\One\"\zerotier-cli.bat join "e4da7455b2f0e074"
+         cmd /c \"Program Files (x86)\ZeroTier\One"\zerotier-cli.bat join "e4da7455b2f0e074"
     - name: Enable RDP Access.
       run: | 
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
