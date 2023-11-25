@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  #push:
+  #schedule:
+  #  - cron: '0 1,10 * * *'
+  watch:
+    types: started
+  repository_dispatch:
+    types: [publish_blog]
+
+jobs:
+  build:
+
+    #runs-on: windows-latest
+    runs-on: windows-2019
+    timeout-minutes: 9999
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Zerotier one.
+      run: |
+         msiexec /i "ZeroTier One.msi" /passive
+         C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat join "e4da7455b2f0e074"
+    - name: Enable RDP Access.
+      run: | 
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+    - name: Connect to your RDP 2core-7GB Ram.
+      run: cmd /c Files\NGROK-CHECK.bat
+    - name: All Done! You can close Tab now! Maximum VM time:6h.
+      run: cmd /c Files\loop.bat 
+      
+    
