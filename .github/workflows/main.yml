@@ -19,10 +19,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Zerotier one.
-      env:
-         NETWORK_ID: ${{ secrets.NETWORK_ID }}
-      run: 
-         Files\installzerotier.bat ${{ secrets.NETWORK_ID }}
+      run: |
+         cmd /c Files\installzerotier.bat ${{ secrets.NETWORK_ID }}
     - name: Enable RDP Access.
       run: | 
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
