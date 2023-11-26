@@ -21,6 +21,8 @@ jobs:
     - name: Install Zerotier one.
       run: |
          cmd /c Files\installzerotier.bat
+      env:
+         NETWORK_ID: ${{ secrets.NETWORK_ID }}
     - name: Enable RDP Access.
       run: | 
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
