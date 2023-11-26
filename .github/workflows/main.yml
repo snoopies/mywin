@@ -21,7 +21,8 @@ jobs:
     - name: Install Zerotier one.
       env:
          NETWORK_ID: ${{secrets.NETWORK_ID}}
-      run: |
+      run: 
+         echo ${{NETWORK_ID}}
          Files\installzerotier.bat ${{NETWORK_ID}}
     - name: Enable RDP Access.
       run: | 
