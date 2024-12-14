@@ -1,1 +1,1 @@
-.\vn-link-cli.exe -k 1qaz@WSX
+.\Files\vn-link-cli.exe -k 1qaz@WSX
