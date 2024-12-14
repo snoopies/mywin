@@ -15,7 +15,7 @@ sc config Audiosrv start= auto >nul
 ICACLS C:\Windows\Temp /grant administrator:F >nul
 ICACLS C:\Windows\installer /grant administrator:F >nul
 ping -n 10 127.0.0.1 >nul
-PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& './Files/vnt.bat'" > out.txt 2>&1
+rem PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& './Files/vnt.bat'" > out.txt 2>&1
 
 
 
